@@ -6,7 +6,7 @@
 <title>Ayush Kuriakose Chacko</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz@0,9..144;1,9..144&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz@0,9..144;1,9..144&family=Inter:wght@400;500;600&family=Petrona:wght@600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#121210;
@@ -22,7 +22,7 @@
   body{ background:var(--bg); color:var(--ink); font-family:var(--sans); line-height:1.6; }
   ::selection{ background:var(--accent); color:#fff; }
 
-  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+  .wrap{ max-width:880px; margin:0 auto; padding:0 24px; }
 
   nav{
     display:flex; justify-content:flex-end; align-items:center;
@@ -31,50 +31,31 @@
   nav .links a{ color:var(--dim); text-decoration:none; margin-left:22px; font-size:13.5px; }
   nav .links a:hover{ color:var(--ink); }
 
-  header.hero{ padding:70px 0 100px; }
-  .kicker{
-    font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--dim);
-    margin-bottom:22px; opacity:0; transform:translateY(8px); transition:.6s cubic-bezier(.16,1,.3,1);
-  }
-  .kicker.in{ opacity:1; transform:translateY(0); }
-  .word{ display:inline-block; opacity:0; transform:translateY(18px); transition:.7s cubic-bezier(.16,1,.3,1); }
-  .word.in{ opacity:1; transform:translateY(0); }
-  h1{
-    font-family:var(--serif);
-    font-weight:400;
-    font-size:clamp(38px, 7vw, 68px);
+  header.hero{ padding:70px 0 40px; }
+  .name{
+    font-family:'Petrona', serif;
+    font-weight:600;
+    font-size:clamp(34px, 5.5vw, 54px);
     line-height:1.15;
-    letter-spacing:-0.01em;
+    letter-spacing:-0.02em;
+    opacity:0; transform:translateY(14px); transition:.8s cubic-bezier(.16,1,.3,1);
   }
-  h1 em{ color:var(--accent); font-style:italic; }
-  .sub{
-    margin-top:26px; color:var(--dim); font-size:16.5px; max-width:480px;
-    opacity:0; transform:translateY(10px); transition:.8s cubic-bezier(.16,1,.3,1) .3s;
-  }
-  .sub.in{ opacity:1; transform:translateY(0); }
-
-  .term{
-    margin-top:18px; font-family:'JetBrains Mono', monospace; font-size:13.5px; color:var(--accent);
-    opacity:0; transition:.6s cubic-bezier(.16,1,.3,1) .15s;
-  }
-  .term.in{ opacity:1; }
-  .term .caret{ display:inline-block; width:7px; height:15px; background:var(--accent); margin-left:2px; vertical-align:-2px; animation:blink 1s step-end infinite; }
-  @keyframes blink{ 50%{ opacity:0; } }
+  .name.in{ opacity:1; transform:translateY(0); }
 
   .sign-off{
     text-align:center; padding:30px 0 60px; font-family:'JetBrains Mono', monospace;
     font-size:12px; color:var(--dim); letter-spacing:.02em;
   }
 
-  section{ padding:90px 0; border-top:1px solid var(--line); }
+  section{ padding:38px 0; border-top:1px solid var(--line); }
   .label{
     font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--dim);
-    margin-bottom:40px;
+    margin-bottom:26px;
   }
   .label::before{ content:'— '; }
 
   .proj{
-    padding:34px 0; border-bottom:1px solid var(--line);
+    padding:24px 0; border-bottom:1px solid var(--line);
     opacity:0; transform:translateY(20px); transition:.7s cubic-bezier(.16,1,.3,1);
   }
   .proj.in{ opacity:1; transform:translateY(0); }
@@ -82,28 +63,38 @@
   .proj-head{ display:flex; justify-content:space-between; align-items:baseline; gap:20px; }
   .proj h3{ font-family:var(--serif); font-weight:400; font-size:28px; }
   .proj a.arrow{ color:var(--accent); text-decoration:none; font-size:14px; white-space:nowrap; }
-  .proj p{ color:var(--dim); font-size:15px; max-width:560px; margin-top:12px; }
-  .metrics{ display:flex; gap:28px; margin-top:20px; flex-wrap:wrap; }
+  .proj p{ color:var(--dim); font-size:15px; max-width:700px; margin-top:10px; }
+  .metrics{ display:flex; gap:28px; margin-top:14px; flex-wrap:wrap; }
   .metric{ font-size:14px; }
   .metric b{ color:var(--ink); font-weight:600; }
   .stack{ margin-top:16px; font-size:12.5px; color:var(--dim); letter-spacing:.02em; }
 
-  .tl{ opacity:0; transform:translateY(20px); transition:.7s cubic-bezier(.16,1,.3,1); padding:26px 0; border-bottom:1px solid var(--line); }
+  .tl{ opacity:0; transform:translateY(20px); transition:.7s cubic-bezier(.16,1,.3,1); padding:18px 0; border-bottom:1px solid var(--line); }
   .tl.in{ opacity:1; transform:translateY(0); }
   .tl:last-child{ border-bottom:none; }
   .tl-top{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
   .tl-role{ font-weight:600; font-size:16px; }
   .tl-date{ color:var(--dim); font-size:13.5px; }
   .tl-org{ color:var(--dim); font-size:14px; margin-top:2px; font-style:italic; }
-  .tl p{ margin-top:10px; color:var(--dim); font-size:14.5px; max-width:560px; }
+  .tl p{ margin-top:8px; color:var(--dim); font-size:14.5px; max-width:700px; }
 
-  .about p{ font-size:17px; max-width:560px; opacity:0; transform:translateY(16px); transition:.7s cubic-bezier(.16,1,.3,1); }
+  .about p{ font-size:17px; max-width:700px; opacity:0; transform:translateY(16px); transition:.7s cubic-bezier(.16,1,.3,1); }
   .about p.in{ opacity:1; transform:translateY(0); }
-  .about p + p{ margin-top:18px; }
+  .about p + p{ margin-top:12px; }
   .about em{ font-family:var(--serif); font-style:italic; color:var(--accent); }
 
+  .skill-row{
+    display:flex; gap:18px; padding:9px 0; border-bottom:1px solid var(--line);
+    font-size:14px; flex-wrap:wrap;
+    opacity:0; transform:translateY(14px); transition:.6s cubic-bezier(.16,1,.3,1);
+  }
+  .skill-row.in{ opacity:1; transform:translateY(0); }
+  .skill-row:last-child{ border-bottom:none; }
+  .skill-row .k{ flex:0 0 170px; font-weight:600; }
+  .skill-row .v{ color:var(--dim); flex:1 1 300px; }
+
   footer{
-    padding:70px 0 90px; display:flex; justify-content:space-between; align-items:flex-end;
+    padding:48px 0 56px; display:flex; justify-content:space-between; align-items:flex-end;
     flex-wrap:wrap; gap:20px; border-top:1px solid var(--line);
   }
   footer .big{ font-family:var(--serif); font-size:26px; font-style:italic; }
@@ -122,18 +113,24 @@
 <div class="wrap">
   <nav>
     <div class="links">
+      <a href="#about">about</a>
       <a href="#experience">experience</a>
       <a href="#work">work</a>
+      <a href="#skills">skills</a>
       <a href="#contact">contact</a>
     </div>
   </nav>
 
   <header class="hero">
-    <div class="kicker" id="kicker">Ayush Kuriakose Chacko</div>
-    <h1 id="headline"></h1>
-    <p class="sub" id="sub">I'm an AI/ML engineer with production computer vision and generative AI experience at Mercedes-Benz R&amp;D. Outside of that, I build small projects and actually benchmark them instead of just demoing them.</p>
-    <div class="term" id="term">$ <span id="term-text"></span><span class="caret"></span></div>
+    <h1 class="name" id="name">Ayush Kuriakose Chacko</h1>
   </header>
+
+  <section class="about" id="about">
+    <div class="label">About</div>
+    <p>I'm an engineer working across computer vision, generative AI, and predictive modeling, from production systems in a car at Mercedes-Benz to small side projects I actually measure instead of just demo.</p>
+    <p>I also spend time contributing to open-source projects I don't maintain, usually small, well-scoped fixes rather than drive-by pull requests.</p>
+    <p>If something doesn't work yet, I'd rather say that plainly than dress it up. Everything else here is proven, not claimed.</p>
+  </section>
 
   <section id="experience">
     <div class="label">Experience</div>
@@ -197,10 +194,14 @@
     </div>
   </section>
 
-  <section class="about" id="about">
-    <div class="label">About</div>
-    <p>I'm an early-career engineer working across computer vision, generative AI, and predictive modeling, from production systems in a car at Mercedes-Benz to small side projects I actually <em>measure instead of just demo</em>.</p>
-    <p>If something doesn't work yet, I'd rather say that plainly than dress it up. Everything else here is proven, not claimed.</p>
+  <section id="skills">
+    <div class="label">Skills</div>
+    <div class="skill-row"><span class="k">Languages</span><span class="v">Python, C, C++, Java, SQL</span></div>
+    <div class="skill-row"><span class="k">Deep Learning &amp; CV</span><span class="v">PyTorch, TensorFlow, CNNs, LSTMs, Object Detection, Segmentation, OpenCV</span></div>
+    <div class="skill-row"><span class="k">Generative AI &amp; NLP</span><span class="v">LangChain, RAG, LLMs, VLMs, Prompt Caching, Vector DBs, LLM Evaluation, AWS Bedrock</span></div>
+    <div class="skill-row"><span class="k">Data Science &amp; ML</span><span class="v">scikit-learn, Pandas, NumPy, Feature Engineering, EDA, Time-Series Forecasting, PySpark</span></div>
+    <div class="skill-row"><span class="k">Edge Deployment</span><span class="v">NVIDIA Jetson, DeepStream, TensorRT, Model Quantization</span></div>
+    <div class="skill-row"><span class="k">Tools &amp; Platforms</span><span class="v">Git, Docker, FastAPI, Django, Azure, GCP</span></div>
   </section>
 
   <footer id="contact">
@@ -216,48 +217,14 @@
 </div>
 
 <script>
-  // word-by-word headline reveal
-  const headline = document.getElementById('headline');
-  const text = 'I build things, then I prove they work.';
-  headline.innerHTML = text.split(' ').map((w,i) =>
-    `<span class="word" style="transition-delay:${i * 55}ms">${w}${i===1?' ':''}</span>`
-  ).join(' ');
   requestAnimationFrame(() => requestAnimationFrame(() => {
-    document.getElementById('kicker').classList.add('in');
-    document.querySelectorAll('.word').forEach(w => w.classList.add('in'));
-    document.getElementById('sub').classList.add('in');
+    document.getElementById('name').classList.add('in');
   }));
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.15 });
-  document.querySelectorAll('.proj, .tl, .about p').forEach(el => io.observe(el));
-
-  // terminal-style cycling line
-  const lines = [
-    'ships small, benchmarked systems',
-    'fails loudly, not silently',
-    'measures before it claims it',
-  ];
-  const termEl = document.getElementById('term-text');
-  const termWrap = document.getElementById('term');
-  let li = 0, ci = 0, deleting = false;
-
-  function tick(){
-    const current = lines[li];
-    if (!deleting){
-      ci++;
-      termEl.textContent = current.slice(0, ci);
-      if (ci === current.length){ deleting = true; setTimeout(tick, 1800); return; }
-      setTimeout(tick, 38);
-    } else {
-      ci--;
-      termEl.textContent = current.slice(0, ci);
-      if (ci === 0){ deleting = false; li = (li + 1) % lines.length; setTimeout(tick, 300); return; }
-      setTimeout(tick, 22);
-    }
-  }
-  setTimeout(() => { termWrap.classList.add('in'); tick(); }, 1400);
+  document.querySelectorAll('.proj, .tl, .about p, .skill-row').forEach(el => io.observe(el));
 
   // terminal-style footer sign-off
   const deployDate = new Date().toLocaleDateString('en-US', { year:'numeric', month:'short' });
