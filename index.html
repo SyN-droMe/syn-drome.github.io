@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayush Kuriakose Chacko</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz@0,9..144;1,9..144&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#121210;
+    --ink:#f2efe8;
+    --dim:#938f85;
+    --line:#2a2924;
+    --accent:#a3b18a;
+    --serif: 'Fraunces', serif;
+    --sans: 'Inter', sans-serif;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--bg); color:var(--ink); font-family:var(--sans); line-height:1.6; }
+  ::selection{ background:var(--accent); color:#fff; }
+
+  .wrap{ max-width:760px; margin:0 auto; padding:0 28px; }
+
+  nav{
+    display:flex; justify-content:flex-end; align-items:center;
+    padding:36px 0; font-size:14px; color:var(--dim);
+  }
+  nav .links a{ color:var(--dim); text-decoration:none; margin-left:22px; font-size:13.5px; }
+  nav .links a:hover{ color:var(--ink); }
+
+  header.hero{ padding:70px 0 100px; }
+  .kicker{
+    font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--dim);
+    margin-bottom:22px; opacity:0; transform:translateY(8px); transition:.6s cubic-bezier(.16,1,.3,1);
+  }
+  .kicker.in{ opacity:1; transform:translateY(0); }
+  .word{ display:inline-block; opacity:0; transform:translateY(18px); transition:.7s cubic-bezier(.16,1,.3,1); }
+  .word.in{ opacity:1; transform:translateY(0); }
+  h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(38px, 7vw, 68px);
+    line-height:1.15;
+    letter-spacing:-0.01em;
+  }
+  h1 em{ color:var(--accent); font-style:italic; }
+  .sub{
+    margin-top:26px; color:var(--dim); font-size:16.5px; max-width:480px;
+    opacity:0; transform:translateY(10px); transition:.8s cubic-bezier(.16,1,.3,1) .3s;
+  }
+  .sub.in{ opacity:1; transform:translateY(0); }
+
+  .term{
+    margin-top:18px; font-family:'JetBrains Mono', monospace; font-size:13.5px; color:var(--accent);
+    opacity:0; transition:.6s cubic-bezier(.16,1,.3,1) .15s;
+  }
+  .term.in{ opacity:1; }
+  .term .caret{ display:inline-block; width:7px; height:15px; background:var(--accent); margin-left:2px; vertical-align:-2px; animation:blink 1s step-end infinite; }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  .sign-off{
+    text-align:center; padding:30px 0 60px; font-family:'JetBrains Mono', monospace;
+    font-size:12px; color:var(--dim); letter-spacing:.02em;
+  }
+
+  section{ padding:90px 0; border-top:1px solid var(--line); }
+  .label{
+    font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--dim);
+    margin-bottom:40px;
+  }
+  .label::before{ content:'— '; }
+
+  .proj{
+    padding:34px 0; border-bottom:1px solid var(--line);
+    opacity:0; transform:translateY(20px); transition:.7s cubic-bezier(.16,1,.3,1);
+  }
+  .proj.in{ opacity:1; transform:translateY(0); }
+  .proj:last-child{ border-bottom:none; }
+  .proj-head{ display:flex; justify-content:space-between; align-items:baseline; gap:20px; }
+  .proj h3{ font-family:var(--serif); font-weight:400; font-size:28px; }
+  .proj a.arrow{ color:var(--accent); text-decoration:none; font-size:14px; white-space:nowrap; }
+  .proj p{ color:var(--dim); font-size:15px; max-width:560px; margin-top:12px; }
+  .metrics{ display:flex; gap:28px; margin-top:20px; flex-wrap:wrap; }
+  .metric{ font-size:14px; }
+  .metric b{ color:var(--ink); font-weight:600; }
+  .stack{ margin-top:16px; font-size:12.5px; color:var(--dim); letter-spacing:.02em; }
+
+  .tl{ opacity:0; transform:translateY(20px); transition:.7s cubic-bezier(.16,1,.3,1); padding:26px 0; border-bottom:1px solid var(--line); }
+  .tl.in{ opacity:1; transform:translateY(0); }
+  .tl:last-child{ border-bottom:none; }
+  .tl-top{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .tl-role{ font-weight:600; font-size:16px; }
+  .tl-date{ color:var(--dim); font-size:13.5px; }
+  .tl-org{ color:var(--dim); font-size:14px; margin-top:2px; font-style:italic; }
+  .tl p{ margin-top:10px; color:var(--dim); font-size:14.5px; max-width:560px; }
+
+  .about p{ font-size:17px; max-width:560px; opacity:0; transform:translateY(16px); transition:.7s cubic-bezier(.16,1,.3,1); }
+  .about p.in{ opacity:1; transform:translateY(0); }
+  .about p + p{ margin-top:18px; }
+  .about em{ font-family:var(--serif); font-style:italic; color:var(--accent); }
+
+  footer{
+    padding:70px 0 90px; display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:20px; border-top:1px solid var(--line);
+  }
+  footer .big{ font-family:var(--serif); font-size:26px; font-style:italic; }
+  footer .links{ display:flex; flex-direction:column; gap:6px; align-items:flex-end; font-size:13.5px; }
+  footer a{ color:var(--dim); text-decoration:none; }
+  footer a:hover{ color:var(--ink); }
+
+  @media (max-width:600px){
+    footer{ flex-direction:column; align-items:flex-start; }
+    footer .links{ align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <div class="links">
+      <a href="#experience">experience</a>
+      <a href="#work">work</a>
+      <a href="#contact">contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="kicker" id="kicker">Ayush Kuriakose Chacko</div>
+    <h1 id="headline"></h1>
+    <p class="sub" id="sub">I'm an AI/ML engineer with production computer vision and generative AI experience at Mercedes-Benz R&amp;D. Outside of that, I build small projects and actually benchmark them instead of just demoing them.</p>
+    <div class="term" id="term">$ <span id="term-text"></span><span class="caret"></span></div>
+  </header>
+
+  <section id="experience">
+    <div class="label">Experience</div>
+
+    <div class="tl">
+      <div class="tl-top"><div class="tl-role">Graduate Apprentice Trainee</div><div class="tl-date">Dec 2025 &ndash; Sep 2026</div></div>
+      <div class="tl-org">Mercedes-Benz Research &amp; Development India</div>
+      <p>Gesture recognition for autonomous parking, knowledge distillation cutting inference time 8.5x, camera calibration and a 4-camera bird's-eye-view pipeline.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-top"><div class="tl-role">Data Science Intern</div><div class="tl-date">Apr &ndash; Nov 2025</div></div>
+      <div class="tl-org">Nuvento Systems Pvt. Ltd.</div>
+      <p>Worked on ExtractIQ, a document AI platform combining VLM and NLP pipelines across 200+ documents; trained YOLOv11 for region detection, deployed on Azure.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-top"><div class="tl-role">Research Intern</div><div class="tl-date">Nov &ndash; Dec 2023</div></div>
+      <div class="tl-org">Centre for Airborne Systems, DRDO</div>
+      <p>Deployed YOLO on Jetson AGX Orin with TensorRT quantization, cutting inference latency from ~350ms to sub-100ms.</p>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="label">Selected work</div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <h3>Bulkhead</h3>
+        <a class="arrow" href="https://github.com/SyN-droMe/bulkhead" target="_blank">view repo &rarr;</a>
+      </div>
+      <p>I built a tool-calling harness for LLM agents around one question: when a tool breaks, does it recover, fail honestly, or fail silently? I proved it against six real failure modes instead of just demoing the happy path.</p>
+      <div class="metrics">
+        <div class="metric"><b>5 of 7</b> scenarios recovered or failed honestly</div>
+        <div class="metric"><b>0</b> uncaught crashes or hangs</div>
+      </div>
+      <div class="stack">Python &middot; Groq tool-calling &middot; daemon-thread timeout enforcement</div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <h3>ShrinkWrap</h3>
+        <a class="arrow" href="https://github.com/SyN-droMe/shrinkwrap" target="_blank">view repo &rarr;</a>
+      </div>
+      <p>I built a drop-in wrapper that intercepts every LLM call and runs it through a measured token-reduction pipeline: caching, adaptive limits, compression, all without degrading the response.</p>
+      <div class="metrics">
+        <div class="metric"><b>26.5%</b> lower total tokens</div>
+        <div class="metric"><b>27.9%</b> lower cost</div>
+      </div>
+      <div class="stack">Python &middot; Anthropic SDK &middot; AWS Bedrock</div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-head">
+        <h3>Heart-Rate Forecasting</h3>
+        <a class="arrow" href="https://github.com/SyN-droMe/IOT-Project" target="_blank">view repo &rarr;</a>
+      </div>
+      <p>I streamed real-time BPM from a pulse sensor while playing two games with very different pacing, then forecast it with a pretrained attention-based transformer.</p>
+      <div class="metrics">
+        <div class="metric"><b>87.6% / 86.4%</b> forecast accuracy</div>
+      </div>
+      <div class="stack">PyTorch &middot; PatchTST &middot; Arduino</div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="label">About</div>
+    <p>I'm an early-career engineer working across computer vision, generative AI, and predictive modeling, from production systems in a car at Mercedes-Benz to small side projects I actually <em>measure instead of just demo</em>.</p>
+    <p>If something doesn't work yet, I'd rather say that plainly than dress it up. Everything else here is proven, not claimed.</p>
+  </section>
+
+  <footer id="contact">
+    <div class="big">Let's talk.</div>
+    <div class="links">
+      <a href="mailto:ayushkuriakose@gmail.com">ayushkuriakose@gmail.com</a>
+      <a href="https://github.com/SyN-droMe" target="_blank">github.com/SyN-droMe</a>
+      <a href="https://www.linkedin.com/in/ayushkchacko/" target="_blank">linkedin.com/in/ayushkchacko</a>
+    </div>
+  </footer>
+
+  <div class="sign-off" id="sign-off"></div>
+</div>
+
+<script>
+  // word-by-word headline reveal
+  const headline = document.getElementById('headline');
+  const text = 'I build things, then I prove they work.';
+  headline.innerHTML = text.split(' ').map((w,i) =>
+    `<span class="word" style="transition-delay:${i * 55}ms">${w}${i===1?' ':''}</span>`
+  ).join(' ');
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.getElementById('kicker').classList.add('in');
+    document.querySelectorAll('.word').forEach(w => w.classList.add('in'));
+    document.getElementById('sub').classList.add('in');
+  }));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.proj, .tl, .about p').forEach(el => io.observe(el));
+
+  // terminal-style cycling line
+  const lines = [
+    'ships small, benchmarked systems',
+    'fails loudly, not silently',
+    'measures before it claims it',
+  ];
+  const termEl = document.getElementById('term-text');
+  const termWrap = document.getElementById('term');
+  let li = 0, ci = 0, deleting = false;
+
+  function tick(){
+    const current = lines[li];
+    if (!deleting){
+      ci++;
+      termEl.textContent = current.slice(0, ci);
+      if (ci === current.length){ deleting = true; setTimeout(tick, 1800); return; }
+      setTimeout(tick, 38);
+    } else {
+      ci--;
+      termEl.textContent = current.slice(0, ci);
+      if (ci === 0){ deleting = false; li = (li + 1) % lines.length; setTimeout(tick, 300); return; }
+      setTimeout(tick, 22);
+    }
+  }
+  setTimeout(() => { termWrap.classList.add('in'); tick(); }, 1400);
+
+  // terminal-style footer sign-off
+  const deployDate = new Date().toLocaleDateString('en-US', { year:'numeric', month:'short' });
+  document.getElementById('sign-off').textContent = `$ last deployed: ${deployDate}`;
+</script>
+
+</body>
+</html>
