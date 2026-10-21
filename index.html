@@ -3,10 +3,29 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ayush Kuriakose Chacko</title>
+<title>Ayush Kuriakose Chacko, AI/ML Engineer</title>
+<meta name="description" content="AI/ML engineer in Bengaluru. Production computer vision at Mercedes-Benz R&D, LLM agent tooling, and open-source fixes. Everything here is measured, not just claimed.">
+<meta name="author" content="Ayush Kuriakose Chacko">
+<link rel="canonical" href="https://syn-drome.github.io/">
+<meta name="theme-color" content="#121210">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://syn-drome.github.io/">
+<meta property="og:title" content="Ayush Kuriakose Chacko, AI/ML Engineer">
+<meta property="og:description" content="Computer vision, LLM systems, and the measurements that tell you whether either one actually works.">
+<meta property="og:image" content="https://syn-drome.github.io/og.png">
+<meta property="og:image:width" content="1680">
+<meta property="og:image:height" content="1000">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ayush Kuriakose Chacko, AI/ML Engineer">
+<meta name="twitter:description" content="Computer vision, LLM systems, and the measurements that tell you whether either one actually works.">
+<meta name="twitter:image" content="https://syn-drome.github.io/og.png">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23121210'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='36' fill='%23a3b18a' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz@0,9..144;1,9..144&family=Inter:wght@400;500;600&family=Petrona:wght@600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Petrona:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#121210;
@@ -14,8 +33,9 @@
     --dim:#938f85;
     --line:#2a2924;
     --accent:#a3b18a;
-    --serif: 'Fraunces', serif;
-    --sans: 'Inter', sans-serif;
+    --serif:'Petrona', serif;
+    --sans:'Inter', system-ui, sans-serif;
+    --mono:'JetBrains Mono', monospace;
   }
   *{ box-sizing:border-box; margin:0; padding:0; }
   html{ scroll-behavior:smooth; }
@@ -28,74 +48,72 @@
     display:flex; justify-content:flex-end; align-items:center;
     padding:36px 0; font-size:14px; color:var(--dim);
   }
-  nav .links a{ color:var(--dim); text-decoration:none; margin-left:22px; font-size:13.5px; }
+  nav .links{ display:flex; flex-wrap:wrap; justify-content:flex-end; gap:10px 22px; }
+  nav .links a{ color:var(--dim); text-decoration:none; font-size:13.5px; }
   nav .links a:hover{ color:var(--ink); }
+  nav .links a.resume{ color:var(--ink); }
+
+  @media (max-width:600px){
+    nav{ padding:24px 0; }
+    nav .links{ gap:8px 16px; }
+    nav .links a{ font-size:12.5px; }
+  }
 
   header.hero{ padding:70px 0 40px; }
   .name{
-    font-family:'Petrona', serif;
+    font-family:var(--serif);
     font-weight:600;
     font-size:clamp(34px, 5.5vw, 54px);
     line-height:1.15;
     letter-spacing:-0.02em;
-    opacity:0; transform:translateY(14px); transition:.8s cubic-bezier(.16,1,.3,1);
   }
-  .name.in{ opacity:1; transform:translateY(0); }
 
   .sign-off{
-    text-align:center; padding:30px 0 60px; font-family:'JetBrains Mono', monospace;
+    text-align:center; padding:30px 0 60px; font-family:var(--mono);
     font-size:12px; color:var(--dim); letter-spacing:.02em;
   }
 
   section{ padding:38px 0; border-top:1px solid var(--line); }
-  .label{
-    font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--dim);
-    margin-bottom:26px;
-  }
-  .label::before{ content:'— '; }
 
-  .proj{
-    padding:24px 0; border-bottom:1px solid var(--line);
-    opacity:0; transform:translateY(20px); transition:.7s cubic-bezier(.16,1,.3,1);
+  .label{
+    display:flex; align-items:center; gap:10px;
+    font-size:12.5px; font-weight:400; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--dim); margin-bottom:26px;
   }
-  .proj.in{ opacity:1; transform:translateY(0); }
-  .proj:last-child{ border-bottom:none; }
+  .label::before{ content:''; width:18px; height:1px; background:currentColor; opacity:.65; }
+
+  .proj{ padding:28px 0; }
   .proj-head{ display:flex; justify-content:space-between; align-items:baseline; gap:20px; }
-  .proj h3{ font-family:var(--serif); font-weight:400; font-size:28px; }
+  .proj h3{ font-family:var(--serif); font-weight:500; font-size:28px; }
   .proj a.arrow{ color:var(--accent); text-decoration:none; font-size:14px; white-space:nowrap; }
+  .proj a.arrow:hover{ text-decoration:underline; }
   .proj p{ color:var(--dim); font-size:15px; max-width:700px; margin-top:10px; }
   .metrics{ display:flex; gap:28px; margin-top:14px; flex-wrap:wrap; }
   .metric{ font-size:14px; }
   .metric b{ color:var(--ink); font-weight:600; }
   .stack{ margin-top:16px; font-size:12.5px; color:var(--dim); letter-spacing:.02em; }
 
-  .tl{ opacity:0; transform:translateY(20px); transition:.7s cubic-bezier(.16,1,.3,1); padding:18px 0; border-bottom:1px solid var(--line); }
-  .tl.in{ opacity:1; transform:translateY(0); }
-  .tl:last-child{ border-bottom:none; }
+  .tl{ padding:22px 0; }
   .tl-top{ display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
   .tl-role{ font-weight:600; font-size:16px; }
   .tl-date{ color:var(--dim); font-size:13.5px; }
   .tl-org{ color:var(--dim); font-size:14px; margin-top:2px; font-style:italic; }
   .tl p{ margin-top:8px; color:var(--dim); font-size:14.5px; max-width:700px; }
 
-  .about p{ font-size:17px; max-width:700px; opacity:0; transform:translateY(16px); transition:.7s cubic-bezier(.16,1,.3,1); }
-  .about p.in{ opacity:1; transform:translateY(0); }
+  .about p{ font-size:17px; max-width:700px; }
   .about p + p{ margin-top:12px; }
   .about em{ font-family:var(--serif); font-style:italic; color:var(--accent); }
 
   .skill-row{
-    display:flex; gap:18px; padding:9px 0; border-bottom:1px solid var(--line);
+    display:flex; gap:18px; padding:11px 0;
     font-size:14px; flex-wrap:wrap;
-    opacity:0; transform:translateY(14px); transition:.6s cubic-bezier(.16,1,.3,1);
   }
-  .skill-row.in{ opacity:1; transform:translateY(0); }
-  .skill-row:last-child{ border-bottom:none; }
   .skill-row .k{ flex:0 0 170px; font-weight:600; }
   .skill-row .v{ color:var(--dim); flex:1 1 300px; }
 
   footer{
     padding:48px 0 56px; display:flex; justify-content:space-between; align-items:flex-end;
-    flex-wrap:wrap; gap:20px; border-top:1px solid var(--line);
+    flex-wrap:wrap; gap:20px;
   }
   footer .big{ font-family:var(--serif); font-size:26px; font-style:italic; }
   footer .links{ display:flex; flex-direction:column; gap:6px; align-items:flex-end; font-size:13.5px; }
@@ -118,22 +136,23 @@
       <a href="#work">work</a>
       <a href="#skills">skills</a>
       <a href="#contact">contact</a>
+      <a class="resume" href="resume.pdf" target="_blank" rel="noopener">resume &nearr;</a>
     </div>
   </nav>
 
-  <header class="hero">
-    <h1 class="name" id="name">Ayush Kuriakose Chacko</h1>
+  <header class="hero" id="hero">
+    <h1 class="name">Ayush Kuriakose Chacko</h1>
   </header>
 
   <section class="about" id="about">
-    <div class="label">About</div>
+    <h2 class="label">About</h2>
     <p>I'm an engineer working across computer vision, generative AI, and predictive modeling, from production systems in a car at Mercedes-Benz to small side projects I actually measure instead of just demo.</p>
     <p>I also spend time contributing to open-source projects I don't maintain, usually small, well-scoped fixes rather than drive-by pull requests.</p>
-    <p>If something doesn't work yet, I'd rather say that plainly than dress it up. Everything else here is proven, not claimed.</p>
+    <p>If something doesn't work yet, I'd rather say that plainly than dress it up. Everything here is measured, not just claimed.</p>
   </section>
 
   <section id="experience">
-    <div class="label">Experience</div>
+    <h2 class="label">Experience</h2>
 
     <div class="tl">
       <div class="tl-top"><div class="tl-role">Graduate Apprentice Trainee</div><div class="tl-date">Dec 2025 &ndash; Sep 2026</div></div>
@@ -153,30 +172,30 @@
   </section>
 
   <section id="work">
-    <div class="label">Selected work</div>
+    <h2 class="label">Selected work</h2>
 
     <div class="proj">
       <div class="proj-head">
         <h3>Emulsion</h3>
         <div>
-          <a class="arrow" href="https://emulsion.ayushkuriakose.workers.dev/" target="_blank">try it &rarr;</a>
-          <a class="arrow" href="https://github.com/SyN-droMe/emulsion" target="_blank" style="margin-left:16px;">view repo &rarr;</a>
+          <a class="arrow" href="https://emulsion.ayushkuriakose.workers.dev/" target="_blank" rel="noopener">try it &rarr;</a>
+          <a class="arrow" href="https://github.com/SyN-droMe/emulsion" target="_blank" rel="noopener" style="margin-left:16px;">view repo &rarr;</a>
         </div>
       </div>
-      <p>I built an interactive map of 3,222 recipes where any two dishes can be routed together, either by what they're made of or by how they're cooked &mdash; a slider trades off TF-IDF ingredient similarity against sentence-embedding technique similarity, and I measured which measure produces smoother paths instead of assuming it.</p>
+      <p>An interactive map of 3,222 recipes where any two dishes can be routed together, either by what they're made of or by how they're cooked. A slider trades TF-IDF ingredient similarity against sentence-embedding technique similarity, and routes were measured for smoothness rather than assumed.</p>
       <div class="metrics">
-        <div class="metric"><b>98%</b> of dish pairs routeable</div>
-        <div class="metric"><b>4.2x</b> lift on cuisine clustering by position</div>
+        <div class="metric"><b>3,222</b> recipes &middot; <b>1,055</b> canonical ingredients</div>
+        <div class="metric"><b>98%</b> of dish pairs routable</div>
       </div>
-      <div class="stack">Python &middot; all-MiniLM-L6-v2 &middot; PCA + UMAP &middot; no backend, it all runs in the page</div>
+      <div class="stack">Python &middot; all-MiniLM-L6-v2 &middot; PCA + UMAP &middot; static data, no backend</div>
     </div>
 
     <div class="proj">
       <div class="proj-head">
         <h3>Bulkhead</h3>
-        <a class="arrow" href="https://github.com/SyN-droMe/bulkhead" target="_blank">view repo &rarr;</a>
+        <a class="arrow" href="https://github.com/SyN-droMe/bulkhead" target="_blank" rel="noopener">view repo &rarr;</a>
       </div>
-      <p>I built a tool-calling harness for LLM agents around one question: when a tool breaks, does it recover, fail honestly, or fail silently? I proved it against six real failure modes instead of just demoing the happy path.</p>
+      <p>A tool-calling harness for LLM agents built around one question: when a tool breaks, does it recover, fail honestly, or fail silently? Proved against six injected failure modes instead of demoing the happy path.</p>
       <div class="metrics">
         <div class="metric"><b>5 of 7</b> scenarios recovered or failed honestly</div>
         <div class="metric"><b>0</b> uncaught crashes or hangs</div>
@@ -187,9 +206,9 @@
     <div class="proj">
       <div class="proj-head">
         <h3>ShrinkWrap</h3>
-        <a class="arrow" href="https://github.com/SyN-droMe/shrinkwrap" target="_blank">view repo &rarr;</a>
+        <a class="arrow" href="https://github.com/SyN-droMe/shrinkwrap" target="_blank" rel="noopener">view repo &rarr;</a>
       </div>
-      <p>I built a drop-in wrapper that intercepts every LLM call and runs it through a measured token-reduction pipeline: caching, adaptive limits, compression, all without degrading the response.</p>
+      <p>A drop-in wrapper that intercepts every LLM call and runs it through a measured token-reduction pipeline (caching, adaptive limits, compression), with output quality checked against the baseline rather than assumed.</p>
       <div class="metrics">
         <div class="metric"><b>26.5%</b> lower total tokens</div>
         <div class="metric"><b>27.9%</b> lower cost</div>
@@ -199,28 +218,28 @@
 
     <div class="proj">
       <div class="proj-head">
-        <h3>Heart-Rate Forecasting</h3>
-        <a class="arrow" href="https://github.com/SyN-droMe/IOT-Project" target="_blank">view repo &rarr;</a>
+        <h3>ScholarAI</h3>
+        <a class="arrow" href="https://github.com/SyN-droMe/ScholarAI" target="_blank" rel="noopener">view repo &rarr;</a>
       </div>
-      <p>I streamed real-time BPM from a pulse sensor while playing two games with very different pacing, then forecast it with a pretrained attention-based transformer.</p>
-      <div class="metrics">
-        <div class="metric"><b>87.6% / 86.4%</b> forecast accuracy</div>
-      </div>
-      <div class="stack">PyTorch &middot; PatchTST &middot; Arduino</div>
+      <p>A RAG pipeline for research-paper Q&amp;A: upload PDFs, ask questions across the collection, and get answers with citations pointing to the paper and page. Dual LLM backends (Gemini or a local LLaMA via Ollama) behind a FastAPI + Streamlit interface.</p>
+      <div class="stack">Python &middot; LangChain &middot; ChromaDB &middot; FastAPI &middot; Streamlit</div>
     </div>
 
     <div class="proj">
       <div class="proj-head">
-        <h3>ScholarAI</h3>
-        <a class="arrow" href="https://github.com/SyN-droMe/ScholarAI" target="_blank">view repo &rarr;</a>
+        <h3>Heart-Rate Forecasting</h3>
+        <a class="arrow" href="https://github.com/SyN-droMe/IOT-Project" target="_blank" rel="noopener">view repo &rarr;</a>
       </div>
-      <p>I built a RAG pipeline for research-paper Q&A: upload PDFs, ask questions across your collection, and get answers with citations pointing to the specific paper and page. It runs dual LLM backends &mdash; Gemini or a local LLaMA via Ollama &mdash; behind a FastAPI + Streamlit interface.</p>
-      <div class="stack">Python &middot; LangChain &middot; ChromaDB &middot; FastAPI &middot; Streamlit</div>
+      <p>Streamed real-time BPM from a pulse sensor while playing two games with very different pacing, then forecast it with a pretrained attention-based transformer.</p>
+      <div class="metrics">
+        <div class="metric"><b>12.5% / 13.6%</b> mean BPM deviation (Geometry Dash / Clash Royale)</div>
+      </div>
+      <div class="stack">PyTorch &middot; PatchTST &middot; Arduino</div>
     </div>
   </section>
 
   <section id="skills">
-    <div class="label">Skills</div>
+    <h2 class="label">Skills</h2>
     <div class="skill-row"><span class="k">Languages</span><span class="v">Python, C, C++, Java, SQL</span></div>
     <div class="skill-row"><span class="k">Deep Learning &amp; CV</span><span class="v">PyTorch, TensorFlow, CNNs, LSTMs, Object Detection, Segmentation, OpenCV</span></div>
     <div class="skill-row"><span class="k">Generative AI &amp; NLP</span><span class="v">LangChain, RAG, LLMs, VLMs, Prompt Caching, Vector DBs, LLM Evaluation, AWS Bedrock</span></div>
@@ -233,28 +252,13 @@
     <div class="big">Let's talk.</div>
     <div class="links">
       <a href="mailto:ayushkuriakose@gmail.com">ayushkuriakose@gmail.com</a>
-      <a href="https://github.com/SyN-droMe" target="_blank">github.com/SyN-droMe</a>
-      <a href="https://www.linkedin.com/in/ayushkchacko/" target="_blank">linkedin.com/in/ayushkchacko</a>
+      <a href="https://github.com/SyN-droMe" target="_blank" rel="noopener">github.com/SyN-droMe</a>
+      <a href="https://www.linkedin.com/in/ayushkchacko/" target="_blank" rel="noopener">linkedin.com/in/ayushkchacko</a>
     </div>
   </footer>
 
-  <div class="sign-off" id="sign-off"></div>
+  <div class="sign-off">&copy; 2026 Ayush Kuriakose Chacko</div>
 </div>
-
-<script>
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    document.getElementById('name').classList.add('in');
-  }));
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.proj, .tl, .about p, .skill-row').forEach(el => io.observe(el));
-
-  // terminal-style footer sign-off
-  const deployDate = new Date().toLocaleDateString('en-US', { year:'numeric', month:'short' });
-  document.getElementById('sign-off').textContent = `$ last deployed: ${deployDate}`;
-</script>
 
 </body>
 </html>
